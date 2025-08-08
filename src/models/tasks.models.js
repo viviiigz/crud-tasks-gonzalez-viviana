@@ -1,7 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-export const Task = (sequelize) => {
   const Task = sequelize.define('Task', {
     id: {
       type: DataTypes.INTEGER,
@@ -23,4 +22,5 @@ export const Task = (sequelize) => {
     }
 
 });
-};
+
+export default Task;
