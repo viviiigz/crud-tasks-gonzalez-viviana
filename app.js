@@ -22,3 +22,5 @@ sequelize.sync().then(() => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
   });
 });
+
+//comprobé todo y funciona creo
