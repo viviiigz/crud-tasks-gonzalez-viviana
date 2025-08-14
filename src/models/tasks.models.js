@@ -20,7 +20,11 @@ import sequelize from '../config/database.js';
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     }
+  },
+  {
+    timestamps:false // No usar timestamps
+  },
+);
 
-});
 
 export default Task;

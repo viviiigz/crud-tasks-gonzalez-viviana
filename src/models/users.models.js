@@ -17,7 +17,10 @@ const UserModel = sequelize.define(
       type: DataTypes.STRING(100),
       allowNull: false,
     }
-  }
+    },
+  {
+    timestamps:false // No usar timestamps
+  },
 );
 
 export default UserModel;
