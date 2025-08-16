@@ -1,5 +1,6 @@
 import sequelize from "../config/database.js";
 import { DataTypes } from "sequelize";
+import ProfileModel from "./profiles.models.js";
 
 const UserModel = sequelize.define(
   'User',
@@ -22,5 +23,16 @@ const UserModel = sequelize.define(
     timestamps:false // No usar timestamps
   },
 );
+
+//relaciones uno a uno (un usuario puede tener un perfil)
+UserModel.hasOne(ProfileModel,{
+  foreignKey: 'user_Id',
+  as: 'profile'
+})
+
+ProfileModel.belongsTo(UserModel,{
+  foreignKey: 'user_Id'
+});
+
 
 export default UserModel;
