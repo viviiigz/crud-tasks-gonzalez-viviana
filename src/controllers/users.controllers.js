@@ -1,4 +1,6 @@
 import User from '../models/users.models.js';
+import Tasks from '../models/tasks.models.js';
+
 
 //crear un nuevo usuario
 export const createUser = async (req, res) => {
@@ -21,10 +23,18 @@ export const createUser = async (req, res) => {
   }
 };
 
-//obtener todos los usuarios
+//obtener todos los usuarios con sus respectivas tareas 
 export const getAllUsers = async (req, res) => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      // usamos include para traer todas las tareas asociadas a cada usuario
+      include: [{
+        model: Tasks, //importamos tasks
+         as: 'tasks',
+        attributes: ['id', 'title', 'isComplete'] // especificamos los atributos de la tarea que queremos mostrar
+      }]
+    });
+
     res.status(200).json(users);
   } catch (error) {
     console.error(error);
@@ -32,11 +42,18 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-// obtener un usuario por su ID
+// obtener un usuario por su ID con su tarea
 export const getUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id ,{
+      include: [{
+        model: Tasks,
+        as: 'tasks',
+        attributes: ['id', 'title', 'isComplete']
+      }]
+    });
+
     if (!user) {
       return res.status(404).json({ error: 'Usuario no encontrado.' });
     }

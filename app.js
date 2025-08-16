@@ -20,7 +20,7 @@ app.use("/api/users", usersRoutes);
 const PORT = process.env.PORT || 3000;
 
 // sincronizar la base de datos y arrancar el servidor
-sequelize.sync({force: true}).then(() => {
+sequelize.sync({alter: true}).then(() => {
   console.log("Base de datos sincronizada");
   app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
