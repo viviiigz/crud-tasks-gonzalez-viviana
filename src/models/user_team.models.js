@@ -13,6 +13,22 @@ const UserTeamModel = sequelize.define(
       autoIncrement: true,
       allowNull: false,
     },
+    user_Id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: UserModel,
+        key: "id",
+      },
+    },
+    team_Id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: TeamModel,
+        key: "id",
+      },
+    },
   },
   {
     timestamps: false, // No usar timestamps
@@ -35,6 +51,14 @@ TeamModel.belongsToMany(UserModel, {
   foreignKey: "team_Id",
 });
 
+UserTeamModel.belongsTo(UserModel, {
+  foreignKey: "user_Id",
+  as: "user",
+});
+UserTeamModel.belongsTo(TeamModel, {
+  foreignKey: "team_Id",
+  as: "team",
+});
 
 //preguntar al profe lo que paso con el as users
 

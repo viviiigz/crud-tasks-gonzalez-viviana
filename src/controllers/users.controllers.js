@@ -26,6 +26,7 @@ export const createUser = async (req, res) => {
 //obtener todos los usuarios con sus respectivas tareas 
 export const getAllUsers = async (req, res) => {
   try {
+
     const users = await User.findAll({
       // usamos include para traer todas las tareas asociadas a cada usuario
       include: [{
