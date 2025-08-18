@@ -32,4 +32,3 @@ sequelize.sync({alter: true}).then(() => {
   });
 });
 
-//comprobé todo y funciona creo
