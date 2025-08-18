@@ -28,13 +28,11 @@ const UserTeamModel = sequelize.define(
 UserModel.belongsToMany(TeamModel, {
   through: UserTeamModel,
   foreignKey: "user_Id",
-  as: "teams"
 });
 
 TeamModel.belongsToMany(UserModel, {
   through: UserTeamModel,
   foreignKey: "team_Id",
-  as: "users"
 });
 
 
