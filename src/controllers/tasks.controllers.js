@@ -22,6 +22,10 @@ export const getTasks = async (req, res) => {
 export const createTask = async (req, res) => {
   const { title, description, isComplete, user_Id } = req.body;
   try {
+    //validar que el usuario exista
+    if (!user_Id) {
+      return res.status(404).json({ error: 'El usuario asociado no existe.' });
+    }
     if (!title || typeof title !== 'string' || title.length === 0 || title.length > 100) {
       return res.status(400).json({ error: 'El título es obligatorio, debe ser una cadena no vacía y tener un máximo de 100 caracteres.' });
     }

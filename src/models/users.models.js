@@ -2,6 +2,7 @@ import sequelize from "../config/database.js";
 import { DataTypes } from "sequelize";
 import ProfileModel from "./profiles.models.js";
 
+
 const UserModel = sequelize.define(
   'User',
   {
@@ -24,6 +25,7 @@ const UserModel = sequelize.define(
   },
 );
 
+
 //relaciones uno a uno (un usuario puede tener un perfil)
 UserModel.hasOne(ProfileModel,{
   foreignKey: 'user_Id',
@@ -31,8 +33,8 @@ UserModel.hasOne(ProfileModel,{
 })
 
 ProfileModel.belongsTo(UserModel,{
-  foreignKey: 'user_Id'
+  foreignKey: 'user_Id',
+  as: 'user'
 });
-
 
 export default UserModel;

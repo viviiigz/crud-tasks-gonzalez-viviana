@@ -4,7 +4,7 @@ import Tasks from '../models/tasks.models.js';
 
 //crear un nuevo usuario
 export const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const {name, email, password } = req.body;
   try {
     if (!name || !email || !password) {
       return res.status(400).json({ error: 'Todos los campos son obligatorios.' });
