@@ -21,7 +21,9 @@ const UserModel = sequelize.define(
     }
     },
   {
-    timestamps:false // No usar timestamps
+    timestamps:false, // No usar timestamps
+    // paranoid: true //permite eliminar registros sin borrarlos físicamente- clase 21/08 modificado
+
   },
 );
 
@@ -34,7 +36,23 @@ UserModel.hasOne(ProfileModel,{
 
 ProfileModel.belongsTo(UserModel,{
   foreignKey: 'user_Id',
-  as: 'user'
+  as: 'user',
+  // onDelete: 'CASCADE' // si quiero eliminar la entidad padre y sus relaciones, uso el onDelete: 'CASCADE'
 });
+
+//si quiero eliminar la entidad padre y sus relaciones, uso el onDelete: 'CASCADE'
+
+// UserModel.addHook("afterDestroy",(user) => { //solo cuando haces las 2 consultas por defecto
+  // Eliminar el perfil asociado al usuario eliminado
+  // console.log(`Eliminando perfil asociado al usuario con ID: ${user.id}`);
+//HASTA DONDE QUERES QUE SE ELIMINE DONDE AFECTE EL PADRE
+  //buscar usuario por id
+
+  //ELIMINACION LÓGICA Y EN CASCADA 21-08
+
+
+
+// });
+
 
 export default UserModel;

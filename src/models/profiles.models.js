@@ -10,7 +10,7 @@ const ProfileModel = sequelize.define(
     },
 },
   {
-    timestamps:false // No usar timestamps
+    timestamps:false , // No usar timestamps
   },
 );
 

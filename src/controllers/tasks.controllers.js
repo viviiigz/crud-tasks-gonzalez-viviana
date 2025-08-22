@@ -129,3 +129,6 @@ export const deleteTask = async (req, res) => {
     return res.status(500).json({ error: "Error al eliminar la tarea" });
   }
 }
+
+//aliminacion en cascada, elimino el padre y todos los que se relaciona con el tambien se borran
+ 
