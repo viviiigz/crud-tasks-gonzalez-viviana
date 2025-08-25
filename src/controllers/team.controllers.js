@@ -18,6 +18,8 @@ export const getAllTeams = async (req, res) => {
     return res.status(500).json({ message: "Error al obtener los equipos" });
   }
 };
+
+export const getAllTeamsById = async (req, res) => {}
 //craear un nuevo equipo y asociarlo a un usuario
 export const createTeam = async (req, res) => {
   try {
@@ -66,3 +68,6 @@ export const createTeam = async (req, res) => {
     return res.status(500).json({ message: "Error al crear el equipo" });
   }
 };
+
+export const updateTeam = async (req, res) => {}
+export const deleteTeam = async (req, res) => {}

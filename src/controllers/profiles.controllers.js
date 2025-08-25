@@ -19,6 +19,7 @@ export const getAllProfiles = async (req, res) => {
     return res.status(500).json({ message: "Error al obtener los perfiles" });
   }
 }
+export const getAllProfilesById = async (req, res) => {}
 
 //añadir un nuevo perfil y que este asociado a un usuario
 export const createProfile = async (req, res) => {
@@ -38,3 +39,7 @@ export const createProfile = async (req, res) => {
     }
 
 };
+
+export const updateProfile = async (req, res) => {}
+
+export const deleteProfile = async (req, res) => {}

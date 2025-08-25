@@ -9,4 +9,5 @@ const router = Router();
 router.get("/", getAllProfiles); //listar todas los perfiles
 router.post("/",createProfile ); //añadir un nuevo perfil
 
+
 export default router;

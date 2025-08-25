@@ -27,6 +27,9 @@ export const getAllUserTeam = async (req, res) => {
       .json({ message: "Error al obtener los equipos de usuario" });
   }
 };
+
+export const getAllUserTeamById = async (req, res) => {}
+
 export const createUserTeam = async (req, res) => {
   try {
     const { user_Id, team_Id } = req.body;
@@ -69,3 +72,6 @@ export const createUserTeam = async (req, res) => {
       .json({ message: "Error al crear la relación entre usuario y equipo" });
   }
 };
+
+export const updateUserTeam = async (req, res) => {}
+export const deleteUserTeam = async (req, res) => {}
