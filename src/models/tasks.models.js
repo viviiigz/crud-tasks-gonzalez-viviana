@@ -33,6 +33,7 @@ import UserModel from './users.models.js'; // Importar el modelo de usuario
 Task.belongsTo(UserModel, {
   foreignKey: 'user_Id',
   as: 'user', // Alias para la relación
+  onDelete: 'CASCADE' // Si se elimina un usuario, se eliminan sus tareas
 });
 
 UserModel.hasMany(Task, {

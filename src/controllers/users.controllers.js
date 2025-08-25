@@ -35,6 +35,8 @@ export const getAllUsers = async (req, res) => {
         attributes: ['id', 'title', 'isComplete'] // especificamos los atributos de la tarea que queremos mostrar
       }]
     });
+    console.log("datos recibidos de la base de datos",users) 
+    //preguntarle al profe sobre este console log
 
     res.status(200).json(users);
   } catch (error) {
@@ -83,6 +85,7 @@ export const updateUser = async (req, res) => {
 
 // eliminar un usuario
 export const deleteUser = async (req, res) => {
+  console.log(deleteUser)
   const { id } = req.params;
   try {
     const user = await User.findByPk(id);
