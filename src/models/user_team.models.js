@@ -39,7 +39,6 @@ const UserTeamModel = sequelize.define(
 // Pasando una cadena a through arriba, le pedimos a Sequelize que genere automáticamente un modelo
 //  llamado User_Profiles como el a través de la mesa (también conocida como tabla de unión)
 
-
 //aca usermodel pertenece a muchos equipos y teammodel pertenece a muchos usuarios
 UserModel.belongsToMany(TeamModel, {
   through: UserTeamModel,

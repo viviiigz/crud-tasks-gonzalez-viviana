@@ -34,12 +34,10 @@ export const createTask = async (req, res) => {
       title.length === 0 ||
       title.length > 100
     ) {
-      return res
-        .status(400)
-        .json({
-          error:
-            "El título es obligatorio, debe ser una cadena no vacía y tener un máximo de 100 caracteres.",
-        });
+      return res.status(400).json({
+        error:
+          "El título es obligatorio, debe ser una cadena no vacía y tener un máximo de 100 caracteres.",
+      });
     }
     if (
       !description ||
@@ -47,20 +45,16 @@ export const createTask = async (req, res) => {
       description.length === 0 ||
       description.length > 100
     ) {
-      return res
-        .status(400)
-        .json({
-          error:
-            "La descripción es obligatoria, debe ser una cadena no vacía y tener un máximo de 100 caracteres.",
-        });
+      return res.status(400).json({
+        error:
+          "La descripción es obligatoria, debe ser una cadena no vacía y tener un máximo de 100 caracteres.",
+      });
     }
     if (typeof isComplete !== "boolean") {
-      return res
-        .status(400)
-        .json({
-          error:
-            "El campo isComplete es obligatorio y debe ser un valor booleano.",
-        });
+      return res.status(400).json({
+        error:
+          "El campo isComplete es obligatorio y debe ser un valor booleano.",
+      });
     }
 
     const existingTask = await Task.findOne({ where: { title } });
@@ -126,11 +120,9 @@ export const updateTask = async (req, res) => {
           description.length > 100)) ||
       (isComplete !== undefined && typeof isComplete !== "boolean")
     ) {
-      return res
-        .status(400)
-        .json({
-          error: "Los datos superan el límite o el tipo es incorrecto.",
-        });
+      return res.status(400).json({
+        error: "Los datos superan el límite o el tipo es incorrecto.",
+      });
     }
     // si se envía un nuevo userId, verificar que el usuario exista
     if (user_Id) {

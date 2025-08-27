@@ -18,17 +18,16 @@ app.use(express.json());
 //rutas
 app.use("/api/tasks", tasksRoutes);
 app.use("/api/users", usersRoutes);
-app.use("/api/profiles", profilesRoutes); 
+app.use("/api/profiles", profilesRoutes);
 app.use("/api/teams", teamsRoutes);
-app.use("/api/user_teams", userTeamRoutes); 
+app.use("/api/user_teams", userTeamRoutes);
 
 const PORT = process.env.PORT || 3000;
 
 // sincronizar la base de datos y arrancar el servidor
-sequelize.sync({force: true}).then(() => {
+sequelize.sync({ force: true }).then(() => {
   console.log("Base de datos sincronizada");
   app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
   });
 });
-
