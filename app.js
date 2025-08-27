@@ -11,6 +11,7 @@ import teamsRoutes from "./src/routes/team.routes.js"; // Importar las rutas de 
 import userTeamRoutes from "./src/routes/user_team.routes.js"; // Importar las rutas de usuario-equipo
 
 dotenv.config();
+ 
 
 const app = express();
 app.use(express.json());
